@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjkbse6hj382e"
-path="res://.godot/imported/morse_g.png-54e934edcbd2af03ee06b2d73f401309.ctex"
+path="res://.godot/imported/g_morse.png-d88ef92b78ecb977cb70715d9d40812a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://morse/morse_g.png"
-dest_files=["res://.godot/imported/morse_g.png-54e934edcbd2af03ee06b2d73f401309.ctex"]
+source_file="res://morse/g_morse.png"
+dest_files=["res://.godot/imported/g_morse.png-d88ef92b78ecb977cb70715d9d40812a.ctex"]
 
 [params]
 

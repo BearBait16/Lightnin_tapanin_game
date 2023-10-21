@@ -33,7 +33,7 @@ func _input(_event):
 	if Input.is_action_just_pressed('space_down'):
 		start_time = Time.get_ticks_msec()
 		pressing = true
-		$Output.text = ""
+		$Control/Output.text = ""
 
 	elif Input.is_action_just_released('space_down'):
 		end_time = Time.get_ticks_msec()
@@ -56,8 +56,8 @@ func check_input():
 			alph_index += 1
 			$Control/Letter.texture = load("res://morse/%s_morse.png".replace("%s", alphabet[alph_index]))
 			pressing = true
-			$Input.text = ""
+			$Control/Input.text = ""
 		else:
-			$Control/Output.text = "Wrong try again"
+			$Control/Output.text = "Wrong try again" 
 			pressing = true
-			$Input.text= ""
+			$Control/Input.text= ""

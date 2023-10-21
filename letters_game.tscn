@@ -25,27 +25,21 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Input" type="Label" parent="Control"]
-layout_mode = 0
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
 offset_left = 444.0
 offset_top = -2.0
 offset_right = 484.0
 offset_bottom = 21.0
-[node name="Input" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-offset_left = 503.0
-offset_top = 41.0
-offset_right = 543.0
-offset_bottom = 64.0
 scale = Vector2(3.88, 1.64)
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[node name="Output" type="Label" parent="."]
+[node name="Output" type="Label" parent="Control"]
 modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
-offset_left = 428.0
-offset_top = 485.0
-offset_right = 468.0
-offset_bottom = 508.0
+offset_left = 369.0
+offset_top = 442.0
+offset_right = 409.0
+offset_bottom = 465.0
 scale = Vector2(2.02228, 0.889087)
