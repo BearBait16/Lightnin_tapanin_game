@@ -4,3 +4,19 @@
 
 [node name="letters_game" type="Node2D"]
 script = ExtResource("1_xbvt8")
+
+[node name="Input" type="Label" parent="."]
+offset_left = 503.0
+offset_top = 41.0
+offset_right = 543.0
+offset_bottom = 64.0
+scale = Vector2(3.88, 1.64)
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Output" type="Label" parent="."]
+offset_left = 428.0
+offset_top = 485.0
+offset_right = 468.0
+offset_bottom = 508.0
+scale = Vector2(2.02228, 0.889087)
