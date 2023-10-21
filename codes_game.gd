@@ -1,29 +1,59 @@
-extends Node2D
+extends Node2D 
 
 var space_pressed = false
 var space_pressed_duration = 0.0
-var dot_or_dash
+var morse_input = ""
+var start_time = 0.0
+var end_time = 0.0
+var duration = 0.0
+var threshold:float = 80
+var morse_matching = {"73": "Hugs and Kisses","AR": "End of message","AS": "Stand by","BK": "Invite receiving station to transmit","KA": "Beginning of message","KN": "End of the transmission","CQ": "Calling any amateur radio station","72": "Best regards","99": "Get lost","1": "Unreadable","2": "Barely readalbe","3": "Readable with considerable difficulty","4": "Readable with pracctically no difficulty","5": "Perfectly readable","YL": "Young Lady","18": "What's the trouble?","7": "Are you ready?"}
+var pause_time = 0
+var pressing = true
+var failed = false
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var alph_index = 0
 
-func _process(delta):
-	if Input.is_action_pressed("ui_accept"):  # Check if the space bar is pressed
-		if !space_pressed:
-			space_pressed = true
-			space_pressed_duration = 0.0
-		space_pressed_duration += delta
-	else:
-		space_pressed = false
-
-	if space_pressed:
-		print("Space bar is pressed for " + str(space_pressed_duration) + " seconds")
-	else:
-		space_pressed_duration = 0.0
+func _ready():
+	pass
+	#for letter in morse_matching
 	
-	return space_pressed_duration
+func _process(delta):
+	if !pressing:
+		pause_time += delta
+		if pause_time > (threshold*0.01):
+			morse_input += " "
+			check_input()
+			pause_time = 0
+			#morse_input = ""
 
-func _dot_or_dash(space_pressed_duration):
-	if space_pressed_duration == 0:
-		dot_or_dash = ""
-	elif space_pressed_duration > 0 && space_pressed_duration > 0.3:
-		dot_or_dash = "dot"
-	elif space_pressed_duration > 0.3:
-		dot_or_dash = "dash"
+	
+func _input(event):
+	if Input.is_action_just_pressed('space_down'):
+		start_time = Time.get_ticks_msec()
+		pressing = true
+
+	elif Input.is_action_just_released('space_down'):
+		end_time = Time.get_ticks_msec()
+		duration = end_time - start_time
+		dot_or_dash()
+		duration = 0.0
+		pressing = false
+		pause_time = 0
+
+func dot_or_dash():
+	if duration <= threshold:
+		morse_input += "."
+	else:
+		morse_input += "-"
+	print(morse_input)
+
+func check_input():
+		if morse_input == morse_matching[alphabet[alph_index]]:
+			print("Nice! Onto the next one")
+			alph_index += 1
+			pressing = true
+		else:
+			print("Wrong try again")
+			pressing = true
+
