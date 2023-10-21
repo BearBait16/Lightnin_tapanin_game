@@ -8,7 +8,7 @@ var morse_input = ""
 var start_time = 0.0
 var end_time = 0.0
 var duration = 0.0
-var threshold:float = 80
+var threshold:float = 200
 var morse_matching = {"a": ".-","b": "-...","c": "-.-.","d": "-..","e": ".","f": "..-.","g": "--.","h": "....","i": "..","j": ".---","k": "-.-","l": ".-..","m": "--","n": "-.","o": "---","p": ".--.","q": "--.-","r": ".-.","s": "...","t": "-","u": "..-","v": "...-","w": ".--","x": "-..-","y": "-.--","z": "--.."}
 var pause_time = 0
 var pressing = true
@@ -57,7 +57,6 @@ func check_input():
 			end_counter += 1
 			if end_counter == 26:
 				$Control/Output.text = "Congratulations!"
-				await(get_tree().create_timer(5))
 				change_scene()
 			$Control/Output.text = "Nice! Onto the next one"
 			alph_index += 1

@@ -20,6 +20,7 @@ var morse_check = get_morse(word)
 func _ready():
 	print(morse_check)
 	print(word)
+	$Output_word.text = word
 	#for letter in morse_matching
 
 func _process(delta):
@@ -32,7 +33,7 @@ func _process(delta):
 			pause_time = 0
 			#morse_input = ""
 		elif pause_time > threshold*.01:
-			print("Waited to Long")
+			$Output_word.text = "Waited to Long"
 			reset()
 
 
@@ -54,22 +55,29 @@ func dot_or_dash():
 		morse_input += "."
 	else:
 		morse_input += "-"
-	print(morse_input)
+	$Input.text = morse_input
+	$Break_space.text = ""
 
 func check_input():
 
 		if morse_input.length() < morse_check.length():
-			print("check")
-			if morse_input != morse_check.substr(0, morse_input.length()):
-				print("Not right, try agian")
+			$Break_space.text = "Continue"
+			if morse_input !=morse_check.substr(0,morse_input.length()):
+				$Right_and_Wrong.text = "Not right, try agian"
+				$Input.text = ""
+				$Break_space.text = ""
 				reset()
 		elif morse_input == morse_check:
-			print("Nice! Onto the next one")
+			$Right_and_Wrong.text = "Nice! Onto the next one"
+			$Input.text = ""
+			$Break_space.text = ""
 			word = words.pick_random()
 			morse_check = get_morse(word)
 			reset()
 		else:
-			print("Wrong try again")
+			$Right_and_Wrong.text = "Wrong try again"
+			$Input.text = ""
+			$Break_space.text = ""
 			reset()
 
 func get_morse(sequence):

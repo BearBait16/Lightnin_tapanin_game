@@ -4,3 +4,27 @@
 
 [node name="Words_game" type="Node2D"]
 script = ExtResource("1_re1l1")
+
+[node name="Output_word" type="Label" parent="."]
+offset_left = 214.0
+offset_top = 34.0
+offset_right = 986.0
+offset_bottom = 189.0
+
+[node name="Input" type="Label" parent="."]
+offset_left = 23.0
+offset_top = 546.0
+offset_right = 1144.0
+offset_bottom = 639.0
+
+[node name="Break_space" type="Label" parent="."]
+offset_left = 489.0
+offset_top = 292.0
+offset_right = 736.0
+offset_bottom = 396.0
+
+[node name="Right_and_Wrong" type="Label" parent="."]
+offset_left = -1.0
+offset_top = 294.0
+offset_right = 524.0
+offset_bottom = 414.0
