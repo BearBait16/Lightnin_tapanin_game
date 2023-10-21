@@ -46,13 +46,13 @@ func dot_or_dash():
 		morse_input += "."
 	else:
 		morse_input += "-"
-	print(morse_input)
+	$Input.text = morse_input
 
 func check_input():
 		if morse_input == morse_matching[alphabet[alph_index]]:
-			print("Nice! Onto the next one")
+			$Output.text = "Nice! Onto the next one"
 			alph_index += 1
 			pressing = true
 		else:
-			print("Wrong try again")
+			$Output.text = "Wrong try again"
 			pressing = true
