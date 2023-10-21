@@ -9,17 +9,19 @@ script = ExtResource("1_xbvt8")
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 59.0
-offset_top = 43.0
-offset_right = 1031.0
-offset_bottom = 583.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Letter" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_left = 223.0
-offset_top = 100.0
-offset_right = 748.0
-offset_bottom = 442.0
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Control"]
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+ratio = 0.001
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/AspectRatioContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/AspectRatioContainer/CenterContainer"]
+layout_mode = 2
 texture = ExtResource("2_6of8i")
 expand_mode = 1
-stretch_mode = 5

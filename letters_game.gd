@@ -15,8 +15,12 @@ var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 var alph_index = 0
 
 func _ready():
-	pass
-	#for letter in morse_matching
+	var Letter = get_node("Control/Letter")
+	# Load a new image from your project resources
+	var new_texture = load("res://morse/f_morse.png")
+
+	# Assign the new image to the Sprite node
+	Letter.texture = new_texture
 	
 func _process(delta):
 	if !pressing:
