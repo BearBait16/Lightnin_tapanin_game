@@ -6,26 +6,32 @@ var morse_input = ""
 var start_time = 0.0
 var end_time = 0.0
 var duration = 0.0
-var threshold:float = 80
-var morse_matching = {"73": "Hugs and Kisses","AR": "End of message","AS": "Stand by","BK": "Invite receiving station to transmit","KA": "Beginning of message","KN": "End of the transmission","CQ": "Calling any amateur radio station","72": "Best regards","99": "Get lost","1": "Unreadable","2": "Barely readalbe","3": "Readable with considerable difficulty","4": "Readable with pracctically no difficulty","5": "Perfectly readable","YL": "Young Lady","18": "What's the trouble?","7": "Are you ready?"}
+var threshold:float = 200
+var codes = {"73": "hugs and kisses","ar": "end of message","as": "stand by","bk": "invite receiving station to transmit","ka": "beginning of message","kn": "end of the transmission","cq": "calling any amateur radio station","72": "best regards","99": "get lost","1": "unreadable","2": "barely readalbe","3": "readable with considerable difficulty","4": "readable with pracctically no difficulty","5": "perfectly readable","yl": "young lady","18": "what's the trouble?","7": "are you ready?"}
+var morse_matching = {"0": "-----","1": ".----","2": "..---","3": "...--","4": "....-","5": ".....","6": "-....","7": "--...","8": "---..","9": "----.","a": ".-","b": "-...","c": "-.-.","d": "-..","e": ".","f": "..-.","g": "--.","h": "....","i": "..","j": ".---","k": "-.-","l": ".-..","m": "--","n": "-.","o": "---","p": ".--.","q": "--.-","r": ".-.","s": "...","t": "-","u": "..-","v": "...-","w": ".--","x": "-..-","y": "-.--","z": "--..",".": ".-.-.-",",": "--..--","?": "..--..","!": "-.-.--","-": "-....-","/": "-..-.","@": ".--.-.","(": "-.--.",")": "-.--.-"}
 var pause_time = 0
 var pressing = true
 var failed = false
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var alph_index = 0
+var morse_check = get_morse(codes.keys()[alph_index])
 
 func _ready():
-	pass
+	print(morse_check)
 	#for letter in morse_matching
 	
 func _process(delta):
 	if !pressing:
 		pause_time += delta
-		if pause_time > (threshold*0.01):
+		if pause_time > (threshold*0.01) and pause_time < threshold*2*.01:
 			morse_input += " "
+			print(morse_check)
 			check_input()
 			pause_time = 0
 			#morse_input = ""
+		elif pause_time > threshold*.01:
+			print("Waited to Long")
+			reset()
 
 	
 func _input(event):
@@ -49,11 +55,29 @@ func dot_or_dash():
 	print(morse_input)
 
 func check_input():
-		if morse_input == morse_matching[alphabet[alph_index]]:
+		
+		if morse_input.length() < morse_check.length():
+			print("check")
+			if morse_input != morse_check.substr(0, morse_input.length()):
+				print("Not right, try agian")
+				reset()
+		elif morse_input == morse_check:
 			print("Nice! Onto the next one")
 			alph_index += 1
-			pressing = true
+			morse_check = get_morse(codes.keys()[alph_index])
+			reset()
 		else:
 			print("Wrong try again")
-			pressing = true
+			reset()
 
+func get_morse(sequence):
+	var m_code = ""
+	for letter in sequence:
+		if (letter in morse_matching.keys()):
+			m_code += str(morse_matching[letter])
+		m_code += " "
+	return m_code
+
+func reset():
+	pressing = true
+	morse_input = ""

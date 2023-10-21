@@ -25,6 +25,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Input" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 444.0
 offset_top = -2.0
 offset_right = 484.0
@@ -34,6 +35,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 
 [node name="Output" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 369.0
 offset_top = 442.0
 offset_right = 409.0
