@@ -1,5 +1,7 @@
 extends Node2D 
 
+var end_counter = 0
+var fail_counter = 0
 var space_pressed = false
 var space_pressed_duration = 0.0
 var morse_input = ""
@@ -52,6 +54,11 @@ func dot_or_dash():
 
 func check_input():
 		if morse_input == morse_matching[alphabet[alph_index]]:
+			end_counter += 1
+			if end_counter == 26:
+				$Control/Output.text = "Congratulations!"
+				await(get_tree().create_timer(5))
+				get_tree().change_scene_to_file("res://main.tscn")
 			$Control/Output.text = "Nice! Onto the next one"
 			alph_index += 1
 			$Control/Letter.texture = load("res://morse/%s_morse.png".replace("%s", alphabet[alph_index]))
@@ -59,5 +66,6 @@ func check_input():
 			$Control/Input.text = ""
 		else:
 			$Control/Output.text = "Wrong try again" 
+			fail_counter += 1
 			pressing = true
 			$Control/Input.text= ""
