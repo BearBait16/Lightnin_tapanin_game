@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://u4p8lahlkjuo"]
+
+[ext_resource type="Script" path="res://words_game.gd" id="1_re1l1"]
+
+[node name="Words_game" type="Node2D"]
+script = ExtResource("1_re1l1")

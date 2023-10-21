@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://uyso7ykn8vfh"]
+
+[ext_resource type="Script" path="res://letters_game.gd" id="1_xbvt8"]
+
+[node name="letters_game" type="Node2D"]
+script = ExtResource("1_xbvt8")

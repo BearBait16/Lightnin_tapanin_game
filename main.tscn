@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7p64jkddncj"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_3c0hu"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_3c0hu")
+
+[node name="Words" type="Button" parent="."]
+offset_left = 389.0
+offset_top = 238.0
+offset_right = 669.0
+offset_bottom = 355.0
+text = "Words"
+
+[node name="Letters" type="Button" parent="."]
+offset_left = 385.0
+offset_top = 55.0
+offset_right = 665.0
+offset_bottom = 172.0
+text = "Letters"
+
+[node name="Codes" type="Button" parent="."]
+offset_left = 371.0
+offset_top = 440.0
+offset_right = 651.0
+offset_bottom = 557.0
+text = "Codes"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 946.0
+offset_top = 590.0
+offset_right = 1139.0
+offset_bottom = 633.0
+text = "Quit"
+
+[connection signal="pressed" from="Words" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Words" to="." method="_on_words_pressed"]
+[connection signal="pressed" from="Letters" to="." method="_on_letters_pressed"]
+[connection signal="pressed" from="Codes" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Codes" to="." method="_on_codes_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_button_4_pressed"]
