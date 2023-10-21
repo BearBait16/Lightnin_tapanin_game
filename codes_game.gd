@@ -22,10 +22,10 @@ func _process(delta):
 	if !pressing:
 		pause_time += delta
 		if pause_time > (threshold*0.01):
-			#morse_input += " "
+			morse_input += " "
 			check_input()
 			pause_time = 0
-			morse_input = ""
+			#morse_input = ""
 
 	
 func _input(event):
