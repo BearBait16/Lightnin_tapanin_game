@@ -6,6 +6,8 @@
 script = ExtResource("1_xbvt8")
 
 [node name="Input" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
 offset_left = 503.0
 offset_top = 41.0
 offset_right = 543.0
@@ -15,6 +17,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 
 [node name="Output" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
 offset_left = 428.0
 offset_top = 485.0
 offset_right = 468.0

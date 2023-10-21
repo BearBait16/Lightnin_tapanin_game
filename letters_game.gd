@@ -32,6 +32,7 @@ func _input(event):
 	if Input.is_action_just_pressed('space_down'):
 		start_time = Time.get_ticks_msec()
 		pressing = true
+		$Output.text = ""
 
 	elif Input.is_action_just_released('space_down'):
 		end_time = Time.get_ticks_msec()
@@ -53,6 +54,8 @@ func check_input():
 			$Output.text = "Nice! Onto the next one"
 			alph_index += 1
 			pressing = true
+			$Input.text = ""
 		else:
 			$Output.text = "Wrong try again"
 			pressing = true
+			$Input.text= ""
