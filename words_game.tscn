@@ -32,5 +32,6 @@ offset_bottom = 414.0
 [node name="Button" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
+text = "Back to Menu"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
