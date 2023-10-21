@@ -14,7 +14,6 @@ func _on_words_pressed():
 func _on_letters_pressed():
 	get_tree().change_scene_to_file("res://letters_game.tscn")
 	
-
-
+	
 func _on_codes_pressed():
 		get_tree().change_scene_to_file("res://codes_game.tscn")

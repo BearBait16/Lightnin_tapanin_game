@@ -58,7 +58,7 @@ func check_input():
 			if end_counter == 26:
 				$Control/Output.text = "Congratulations!"
 				await(get_tree().create_timer(5))
-				get_tree().change_scene_to_file("res://main.tscn")
+				change_scene()
 			$Control/Output.text = "Nice! Onto the next one"
 			alph_index += 1
 			$Control/Letter.texture = load("res://morse/%s_morse.png".replace("%s", alphabet[alph_index]))
@@ -69,3 +69,7 @@ func check_input():
 			fail_counter += 1
 			pressing = true
 			$Control/Input.text= ""
+			
+
+func change_scene():
+	get_tree().change_scene_to_file("res://main.tscn")
