@@ -15,6 +15,7 @@ var pressing = true
 var failed = false
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var alph_index = 0
+var end = len(alphabet)
 
 func _ready():
 	# Load a new image from your project resources
@@ -55,7 +56,7 @@ func dot_or_dash():
 func check_input():
 		if morse_input == morse_matching[alphabet[alph_index]]:
 			end_counter += 1
-			if end_counter == 26:
+			if end_counter == end:
 				$Control/Output.text = "Congratulations!"
 				get_tree().create_timer(5)
 				change_scene()
@@ -74,3 +75,6 @@ func check_input():
 
 func change_scene():
 	get_tree().change_scene_to_file("res://main.tscn")
+
+func _on_button_pressed():
+	change_scene()

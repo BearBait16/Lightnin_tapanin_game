@@ -16,6 +16,8 @@ var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 var alph_index = 0
 var word = words.pick_random()
 var morse_check = get_morse(word)
+var end_counter = 0
+var end = len(words)
 
 func _ready():
 	print(morse_check)
@@ -59,7 +61,7 @@ func dot_or_dash():
 	$Break_space.text = ""
 
 func check_input():
-
+		
 		if morse_input.length() < morse_check.length():
 			$Break_space.text = "Continue"
 			if morse_input !=morse_check.substr(0,morse_input.length()):
@@ -69,6 +71,12 @@ func check_input():
 				reset()
 		elif morse_input == morse_check:
 			$Right_and_Wrong.text = "Nice! Onto the next one"
+			end_counter += 1
+			if end_counter == end:
+				$Control/Output.text = "Congratulations!"
+				get_tree().create_timer(5)
+				change_scene()
+				return
 			$Input.text = ""
 			$Break_space.text = ""
 			word = words.pick_random()
@@ -91,3 +99,6 @@ func get_morse(sequence):
 func reset():
 	pressing = true
 	morse_input = ""
+
+func change_scene():
+	get_tree().change_scene_to_file("res://main.tscn")
