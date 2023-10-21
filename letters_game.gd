@@ -15,12 +15,9 @@ var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 var alph_index = 0
 
 func _ready():
-	var Letter = get_node("Control/Letter")
 	# Load a new image from your project resources
-	var new_texture = load("res://morse/f_morse.png")
-
 	# Assign the new image to the Sprite node
-	Letter.texture = new_texture
+	$Control/Letter.texture = load("res://morse/%s_morse.png".replace("%s", alphabet[alph_index]))
 	
 func _process(delta):
 	if !pressing:
@@ -32,7 +29,7 @@ func _process(delta):
 			morse_input = ""
 
 	
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed('space_down'):
 		start_time = Time.get_ticks_msec()
 		pressing = true
@@ -50,13 +47,14 @@ func dot_or_dash():
 		morse_input += "."
 	else:
 		morse_input += "-"
-	$Input.text = morse_input
+	$Control/Input.text = morse_input
 
 func check_input():
 		if morse_input == morse_matching[alphabet[alph_index]]:
-			$Output.text = "Nice! Onto the next one"
+			$Control/Output.text = "Nice! Onto the next one"
 			alph_index += 1
+			$Control/Letter.texture = load("res://morse/%s_morse.png".replace("%s", alphabet[alph_index]))
 			pressing = true
 		else:
-			$Output.text = "Wrong try again"
+			$Control/Output.text = "Wrong try again"
 			pressing = true
