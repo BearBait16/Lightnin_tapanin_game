@@ -81,3 +81,6 @@ func get_morse(sequence):
 func reset():
 	pressing = true
 	morse_input = ""
+
+func change_scene():
+	get_tree().change_scene_to_file("res://main.tscn")
