@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1ymweggr7e4b"]
+[gd_scene load_steps=3 format=3 uid="uid://b1ymweggr7e4b"]
 
 [ext_resource type="Script" path="res://codes_game.gd" id="1_8jlsa"]
+[ext_resource type="Texture2D" uid="uid://bl6cfv4g01whu" path="res://MicrosoftTeams-image (2).png" id="2_g0pro"]
 
 [node name="Codes_game" type="Node2D"]
 script = ExtResource("1_8jlsa")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -553.0
+offset_top = -67.0
+offset_right = 2455.0
+offset_bottom = 1933.0
+texture = ExtResource("2_g0pro")
 
 [node name="Right_and_Wrong" type="Label" parent="."]
 offset_left = 60.0
@@ -18,10 +26,10 @@ offset_right = 926.0
 offset_bottom = 149.0
 
 [node name="Input" type="Label" parent="."]
-offset_left = 172.0
-offset_top = 551.0
-offset_right = 958.0
-offset_bottom = 637.0
+offset_left = 169.0
+offset_top = 379.0
+offset_right = 955.0
+offset_bottom = 465.0
 
 [node name="Sentance_break" type="Label" parent="."]
 offset_left = 454.0

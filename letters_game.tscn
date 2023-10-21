@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://uyso7ykn8vfh"]
+[gd_scene load_steps=4 format=3 uid="uid://uyso7ykn8vfh"]
 
 [ext_resource type="Script" path="res://letters_game.gd" id="1_xbvt8"]
 [ext_resource type="Texture2D" uid="uid://bn30njkc8l2bm" path="res://morse/0_morse.png" id="2_6of8i"]
+[ext_resource type="Texture2D" uid="uid://bl6cfv4g01whu" path="res://MicrosoftTeams-image (2).png" id="3_7e558"]
 
 [node name="letters_game" type="Node2D"]
 script = ExtResource("1_xbvt8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -1241.0
+offset_top = -330.0
+offset_right = 1767.0
+offset_bottom = 1670.0
+texture = ExtResource("3_7e558")
+expand_mode = 2
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

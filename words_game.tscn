@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://u4p8lahlkjuo"]
+[gd_scene load_steps=3 format=3 uid="uid://u4p8lahlkjuo"]
 
 [ext_resource type="Script" path="res://words_game.gd" id="1_re1l1"]
+[ext_resource type="Texture2D" uid="uid://bl6cfv4g01whu" path="res://MicrosoftTeams-image (2).png" id="2_2jb0r"]
 
 [node name="Words_game" type="Node2D"]
 script = ExtResource("1_re1l1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 3008.0
+offset_bottom = 2000.0
+texture = ExtResource("2_2jb0r")
 
 [node name="Output_word" type="Label" parent="."]
 offset_left = 214.0
@@ -12,10 +18,10 @@ offset_right = 986.0
 offset_bottom = 189.0
 
 [node name="Input" type="Label" parent="."]
-offset_left = 23.0
-offset_top = 546.0
-offset_right = 1144.0
-offset_bottom = 639.0
+offset_left = 68.0
+offset_top = 393.0
+offset_right = 1189.0
+offset_bottom = 486.0
 
 [node name="Break_space" type="Label" parent="."]
 offset_left = 489.0

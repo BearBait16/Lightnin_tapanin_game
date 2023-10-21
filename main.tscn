@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7p64jkddncj"]
+[gd_scene load_steps=3 format=3 uid="uid://b7p64jkddncj"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3c0hu"]
+[ext_resource type="Texture2D" uid="uid://c085kyekygdhn" path="res://MicrosoftTeams-image.png" id="2_dpgiu"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3c0hu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -1672.0
+offset_top = -1289.0
+offset_right = 1336.0
+offset_bottom = 711.0
+texture = ExtResource("2_dpgiu")
 
 [node name="Words" type="Button" parent="."]
 offset_left = 389.0
@@ -20,10 +28,10 @@ offset_bottom = 172.0
 text = "Letters"
 
 [node name="Codes" type="Button" parent="."]
-offset_left = 371.0
-offset_top = 440.0
-offset_right = 651.0
-offset_bottom = 557.0
+offset_left = 401.0
+offset_top = 434.0
+offset_right = 681.0
+offset_bottom = 551.0
 text = "Codes"
 
 [node name="Quit" type="Button" parent="."]
