@@ -57,8 +57,9 @@ func check_input():
 			end_counter += 1
 			if end_counter == 26:
 				$Control/Output.text = "Congratulations!"
-				await(get_tree().create_timer(5))
+				get_tree().create_timer(5)
 				change_scene()
+				return
 			$Control/Output.text = "Nice! Onto the next one"
 			alph_index += 1
 			$Control/Letter.texture = load("res://morse/%s_morse.png".replace("%s", alphabet[alph_index]))
